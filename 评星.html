@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>五角星评分案例</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .comment {
+            font-size: 40px;
+            color: red;
+        }
+
+        .comment li {
+            float: left;
+            cursor: pointer;
+        }
+
+        ul {
+            list-style: none;
+        }
+    </style>
+    <script src="./jquery/jquery-2.2.2.js"></script>
+    <script>
+        jQuery(window).ready(function () {
+            let lis = $('.comment li');
+            let danqian = -1;
+            lis.mouseover(function () {
+                let index = $(this).index();
+                $('li').each(function (i, e) {
+                    // if (i <= index) {
+                    //     $(e).text('★');
+                    // } else {
+                    //     $(e).text('☆');
+                    // }
+                    i <= index ? $(e).text('★') : $(e).text('☆');
+                });
+            });
+            lis.click(function () {
+                danqian = $(this).index();
+            });
+            lis.mouseout(function(){
+                lis.each(function(i,e){
+                    // if (i <= danqian) {
+                    //     $(e).text('★');
+                    // } else {
+                    //     $(e).text('☆');
+                    // }
+                    i <= danqian ? $(e).text('★') : $(e).text('☆');
+                });
+            });
+        });
+    </script>
+   
+</head>
+
+<body>
+
+    <ul class="comment">
+        <li>☆</li>
+        <li>☆</li>
+        <li>☆</li>
+        <li>☆</li>
+        <li>☆</li>
+    </ul>
+
+</body>
+
+</html>
